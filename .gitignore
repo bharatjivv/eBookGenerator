@@ -1,3 +1,5 @@
+// All the Node Modules in folder and sub-folders
 **/node_modules/
-backend/*.env
+
+// All the env files in folder and sub-folders
 **/.env
