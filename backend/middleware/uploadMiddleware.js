@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         cb(
             null,
-            `${file.filename}-${Date.now()}${path.extname(fileoriginalname)}`
+            `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
         );
     },
 });
@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 // Check file type
 function checkFileType(file, cb) {
     const filetypes = /jpeg|jpg|png|gif/;
-    const extname = filetypes = filetypes.test(path.extname(file.originalname).toLowerCase())
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
     const mimetype = filetypes.test(file.mimetype);
 
     if(mimetype && extname) {
@@ -35,7 +35,6 @@ function checkFileType(file, cb) {
         cb("Error: Images Only!")
     }
 }
-
 
 // Initialize Upload
 const upload = multer({
@@ -47,5 +46,3 @@ const upload = multer({
 }).single("coverImage"); // Field name for the uploaded file
 
 module.exports = upload;
-
-

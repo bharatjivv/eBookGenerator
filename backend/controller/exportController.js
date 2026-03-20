@@ -400,8 +400,8 @@ const exportAsDocument = async (req, res) => {
         children: [
           new TextRun({
             text: `by ${book.author}`,
-            font: DOCX_STYLES.font.heading,
-            size: DOCX_STYLES.size.author * 2,
+            font: DOCX_STYLES.fonts.heading,
+            size: DOCX_STYLES.sizes.author * 2,
             COLOR: "2D3748",
           }),
         ],
@@ -507,9 +507,9 @@ const exportAsDocument = async (req, res) => {
   } catch (e) {
     console.error("Error exporting document: ", e);
     if (!res.headersSent) {
-      res.status(500).jsno({
+      res.status(500).json({
         message: "Server error during document export",
-        error: error.message,
+        error: e.message,
       });
     }
   }
@@ -803,7 +803,7 @@ const exportAsPDF = async (req, res) => {
           const pageHeight =
             doc.page.height -
             doc.page.margins.top -
-            doc.page.margins.bottom.toExponential;
+            doc.page.margins.bottom; 
           doc.image(imagePath, doc.page.margins.left, doc.page.margins.top, {
             fit: [pageWidth * 0.8, pageHeight * 0.8],
             align: "center",
