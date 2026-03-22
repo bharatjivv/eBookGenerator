@@ -52,11 +52,13 @@ const Navbar = () => {
           {/* Auth Buttons and Profile */}
 
           <div className="hidden lg:flex items-center space-x-3">
-            {isAuthenticated ? (
+            {isAuthenticated ? 
+            
+            (
               <ProfileDropDown
                 isOpen={profileDropDownOpen}
                 onToggle={(e) => {
-                  e.stopPropogation();
+                  e.stopPropagation();
                   setProfileDropDownOpen(!profileDropDownOpen);
                 }}
                 avatar={user?.avatar || ""}
@@ -65,7 +67,9 @@ const Navbar = () => {
                 userRole={user?.role || ""}
                 onLogout={() => console.log("Logout")}
               />
-            ) : (
+            ) : 
+            
+            (
               <>
                 <a
                   href="/login"
