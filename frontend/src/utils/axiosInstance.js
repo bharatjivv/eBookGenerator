@@ -15,7 +15,7 @@ axiosInstance.interceptors.request.use(
     (config) => {
         const accessToken = localStorage.getItem("token");
         if(accessToken) {
-            config.headers.Authorization = ~Bearer `${accessToken}`;
+            config.headers.Authorization = `Bearer ${accessToken}`;;
         }
         return config;
     },
@@ -35,7 +35,7 @@ axiosInstance.interceptors.response.use(
             if(error.response.status === 500) {
                 console.error("Server error. Please try again later.");
             }
-        } else if(error.cod === "ECONNABORTED") {
+        } else if(error.code === "ECONNABORTED") {
             console.error("Request timeout. Please try again.")
         }
         return Promise.reject(error);

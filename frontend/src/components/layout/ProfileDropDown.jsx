@@ -11,8 +11,8 @@ const ProfileDropDown = ({ isOpen,
 
   const navigate = useNavigate()
   return (
-    <div className="relative border">
-      <button className="border flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-50 transition-colors duration-200" 
+    <div className="relative">
+      <button className="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-50 transition-colors duration-200" 
       onClick={onToggle}> 
       
       {avatar ? (<img src={avatar} alt="Avatar" className="h-9 w-9 object-cover rounded-xl" />)

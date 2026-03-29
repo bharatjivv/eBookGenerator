@@ -12,7 +12,6 @@ import ProfilePage from './pages/ProfilePage';
 const App = () => {
   return (
     <>
-
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
@@ -22,38 +21,22 @@ const App = () => {
         {/* Protected Routes */}
         <Route
           path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><DashboardPage /></ProtectedRoute>}
         />
 
         <Route
           path="/editor/:bookId"
-          element={
-            <ProtectedRoute>
-              <EditorPage />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><EditorPage /></ProtectedRoute>}
         />
 
         <Route
           path="/view-book/:bookId"
-          element={
-            <ProtectedRoute>
-              <ViewBookPage />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><ViewBookPage /></ProtectedRoute>}
         />
 
         <Route
           path="/profile"
-          element={
-            <ProtectedRoute>
-              <ProfilePage />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><ProfilePage /></ProtectedRoute>}
         />
       </Routes>
     </>
