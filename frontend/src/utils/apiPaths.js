@@ -1,3 +1,5 @@
+export const BASE_URL = "https://ebookgenerator-backend.onrender.com";
+
 export const API_PATHS = {
     AUTH: {
         REGISTER: "/api/auth/register",
@@ -22,5 +24,3 @@ export const API_PATHS = {
         DOC: "/api/export",
     },
 };
-
-export const BASE_URL = "http://localhost:8000";
